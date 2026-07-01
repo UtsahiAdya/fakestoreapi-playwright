@@ -1,0 +1,27 @@
+{
+  "name": "fakestoreapi-cart-tests",
+  "version": "1.0.0",
+  "description": "Playwright API test suite for FakeStoreAPI Cart CRUD (page-object + data-driven + schema/contract testing)",
+  "private": true,
+  "scripts": {
+    "test": "playwright test",
+    "test:headed": "playwright test --headed",
+    "test:positive": "playwright test cart.positive",
+    "test:negative": "playwright test cart.negative",
+    "test:auth": "playwright test cart.auth",
+    "test:schema": "playwright test cart.schema",
+    "test:data-driven": "playwright test cart.dataDriven",
+    "test:debug": "playwright test --debug",
+    "report": "playwright show-report",
+    "codegen": "playwright codegen https://fakestoreapi.com"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.47.0",
+    "ajv": "^8.17.1",
+    "ajv-formats": "^3.0.1",
+    "@types/node": "^20.14.0"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

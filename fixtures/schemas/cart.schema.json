@@ -1,0 +1,25 @@
+{
+  "$id": "cart.schema.json",
+  "title": "Cart",
+  "type": "object",
+  "additionalProperties": true,
+  "required": ["id", "userId", "products"],
+  "properties": {
+    "id": { "type": "integer" },
+    "userId": { "type": "integer" },
+    "date": { "type": "string" },
+    "__v": { "type": "integer" },
+    "products": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["productId", "quantity"],
+        "additionalProperties": true,
+        "properties": {
+          "productId": { "type": "integer" },
+          "quantity": { "type": "integer" }
+        }
+      }
+    }
+  }
+}

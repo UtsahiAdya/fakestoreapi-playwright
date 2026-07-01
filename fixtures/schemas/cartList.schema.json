@@ -1,0 +1,6 @@
+{
+  "$id": "cartList.schema.json",
+  "title": "CartList",
+  "type": "array",
+  "items": { "$ref": "cart.schema.json" }
+}

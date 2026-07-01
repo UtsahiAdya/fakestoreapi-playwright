@@ -1,0 +1,10 @@
+{
+  "$id": "authLogin.schema.json",
+  "title": "AuthLoginResponse",
+  "type": "object",
+  "required": ["token"],
+  "additionalProperties": true,
+  "properties": {
+    "token": { "type": "string", "minLength": 10 }
+  }
+}
