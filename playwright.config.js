@@ -65,21 +65,4 @@ module.exports = defineConfig({
     extraHTTPHeaders: {
       Accept: 'application/json',
       // A realistic browser User-Agent + Accept-Language reduces the
-      // chance of being flagged as a bare bot/script client by
-      // upstream bot-detection. This is a legitimate, publicly
-      // documented demo API — not a scraping workaround for a site
-      // that disallows automated access.
-      'User-Agent':
-        'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36',
-      'Accept-Language': 'en-US,en;q=0.9',
-    },
-    trace: 'retain-on-failure',
-  },
-
-  projects: [
-    {
-      name: 'api',
-      use: { ...devices['Desktop Chrome'] },
-    },
-  ],
-});
+      //
