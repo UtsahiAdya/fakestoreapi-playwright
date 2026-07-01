@@ -8,8 +8,8 @@ on:
   # Lets you trigger a run manually from the Actions tab.
   workflow_dispatch:
   # Optional: catch upstream API drift even without code changes.
-  schedule:
-    - cron: '0 6 * * *' # daily at 06:00 UTC
+  # schedule:
+  #   - cron: '0 6 * * *' # daily at 06:00 UTC
 
 jobs:
   test:
@@ -24,8 +24,8 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20
-          # cache: 'npm'
+          node-version: 22
+          cache: 'npm'
 
       - name: Install dependencies
         run: npm ci
