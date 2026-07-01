@@ -1,4 +1,4 @@
- name: Cart API Tests
+name: Cart API Tests
 
 on:
   push:
@@ -38,12 +38,12 @@ jobs:
 
       - name: Run Cart CRUD test suite
         id: run_tests
-        # NON-BLOCKING BY DESIGN — see README "Known CI limitation".
+        # NON-BLOCKING BY DESIGN - see README "Known CI limitation".
         # GitHub-hosted runner IPs are shared, well-known, and are
         # sometimes blocklisted outright by third-party WAFs (GitHub's
         # own docs note runner IPs can be flagged as "malicious" or
         # "suspicious" by IP reputation services). When that happens
-        # against FakeStoreAPI, EVERY request gets a static 403 — no
+        # against FakeStoreAPI, EVERY request gets a static 403 - no
         # amount of retrying, backing off, or header tweaking fixes a
         # static IP-range block, so failing the build on that would
         # just be a false negative unrelated to this code. A human
