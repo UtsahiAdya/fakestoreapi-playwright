@@ -45,6 +45,21 @@ npm run test:data-driven    # just the data-driven suite
 npm run report               # open the last HTML report
 ```
 
+## Known CI limitation — public API + shared runner IPs
+
+FakeStoreAPI is a free, unauthenticated third-party API with no SLA. In testing, a full CI run occasionally comes back with **widespread 403 responses across nearly every endpoint** (not just auth-related ones), where the response body is raw HTML (`<!DOCTYPE ...>`) instead of JSON. This is the signature of upstream WAF/bot-protection blocking traffic from GitHub Actions' shared, well-known datacenter IP ranges — the exact same suite passes cleanly when run locally from a normal residential/office connection.
+
+**How to tell the difference between this and a real regression:**
+- **Upstream block:** *every* endpoint fails at once, including ones unrelated to whatever you just changed, and failing tests return an HTML doctype instead of JSON.
+- **Real regression:** a small, specific set of tests fail with a JSON error body and a status code that makes semantic sense for that request.
+
+**Mitigations already in place** (`playwright.config.js`):
+- CI parallelism intentionally kept low (`workers: 2`) — bursty concurrent traffic from one IP is what most bot-detection keys off of.
+- Extra retries in CI (`retries: 3`).
+- Realistic browser `User-Agent`/`Accept-Language` headers so requests don't look like a bare script.
+
+If a CI run still shows this pattern, simply re-run the job — it's very likely transient. This isn't something the test assertions can fully guarantee against, since it depends on a third party's infrastructure outside this repo's control.
+
 ## Extension plan
 
 **Parallelization**
