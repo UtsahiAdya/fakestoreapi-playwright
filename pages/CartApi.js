@@ -13,12 +13,10 @@ class CartApi extends BaseApi {
     this.basePath = '/carts';
   }
 
-  /**
-   * GET /carts
-   * @param {string} [token]
-   * @param {{limit?: number, sort?: 'asc'|'desc', startdate?: string, enddate?: string}} [params]
-   *   Documented query params from the FakeStoreAPI source README.
-   */
+  // /**
+  //  * GET /carts
+  //  *   Documented query params from the FakeStoreAPI source README.
+  //  */
   async getAllCarts(token, params) {
     return this.request.get(this.basePath + this.toQueryString(params), {
       headers: this.authHeader(token),
@@ -32,11 +30,9 @@ class CartApi extends BaseApi {
     });
   }
 
-  /**
-   * GET /carts/user/:userId
-   * @param {string} [token]
-   * @param {{startdate?: string, enddate?: string}} [params]
-   */
+  // /**
+  //  * GET /carts/user/:userId
+  //  */
   async getCartsByUserId(userId, token, params) {
     return this.request.get(`${this.basePath}/user/${userId}${this.toQueryString(params)}`, {
       headers: this.authHeader(token),

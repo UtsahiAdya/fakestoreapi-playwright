@@ -31,7 +31,7 @@ const { INVALID_CREDENTIALS, VALID_CART_ID } = require('../fixtures/testData');
  * Fetches the full user list and returns the username/password of the
  * first seeded user. Per FakeStoreAPI's own source README, /users
  * returns plaintext password fields for demo purposes.
- * @param {import('../pages/UsersApi').UsersApi} usersApi
+  
  */
 async function fetchLiveCredentials(usersApi) {
   const usersRes = await usersApi.getAllUsers();

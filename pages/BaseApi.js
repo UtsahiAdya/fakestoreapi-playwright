@@ -9,9 +9,7 @@
  * endpoint paths, headers and request shaping in ONE place.
  */
 class BaseApi {
-  /**
-   * @param {import('@playwright/test').APIRequestContext} request
-   */
+  
   constructor(request) {
     this.request = request;
   }
